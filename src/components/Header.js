@@ -1,12 +1,12 @@
 import {Link} from "react-router-dom";
+import css from "./css.css";
 
 export default function Header(){
     return(
-        <div>
-            <div><Link to={'movie'}>Movie</Link></div>
-            <div><Link to={'genre'}>Genre</Link></div>
+        <div className='headers'>
+            <div className='header' ><Link to={'home'}>Home</Link></div>
+            <div className='header'><Link to={'movie'}>Movie</Link></div>
+            <div className='header'><Link to={'genre'}>Genre</Link></div>
         </div>
     );
-
-    
 }

@@ -1,23 +1,32 @@
 import {createSlice,createAsyncThunk} from "@reduxjs/toolkit";
-import {movieService} from "../../services";
+import {genreService, movieService} from "../../services";
 
 const initialState = {
     movies: [],
-    errors:null
+    errors:null,
+    prev:null,
+    next:null
 };
 
 const getAll = createAsyncThunk(
     'movieSlice/getAll',
-         async (_, {rejectedWithValue})=>{
+         async ({page}, {rejectedWithValue})=>{
          try {
-            const {data} = await movieService.getAll();
+            const {data} = await movieService.getAll(page);
             return data;
         }catch (e){
             return rejectedWithValue(e.response.data)
         }
-
     }
 )
+
+const getGenre = createAsyncThunk(
+    'movieSlice/genre',
+    async ({id})=>{
+        const {data} = await genreService.getGenre(id);
+        return data;
+    }
+);
 
 const movieSlice = createSlice({
     name:'movieSlice',
@@ -32,12 +41,16 @@ const movieSlice = createSlice({
             .addCase(getAll.rejected, (state, action) => {
                state.errors = action.payload
             })
+            .addCase(getGenre.fulfilled, (state, action) => {
+                state.movies = action.payload
+            })
 
 });
 const {reducer:movieReducer} = movieSlice;
 
 const movieActions = {
-   getAll
+   getAll,
+    getGenre
 }
 export {
     movieReducer,movieActions

@@ -1,29 +1,44 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {movieActions, postActions} from "../redux";
+import {movieActions} from "../redux";
 import MoviesListCard from "./MoviesListCard";
-import PosterPreview from "./PosterPreview";
+import {useSearchParams} from "react-router-dom";
+
 
 
 export default function MoviesList(){
-    const {movies} = useSelector(state => state.movies);
-    // const {posts} = useSelector(state => state.posts);
+    const {movies,prev,next} = useSelector(state => state.movies);
 
     const {results} = movies;
-    // const {results2} = posts;
-    // useEffect(()=>{
-    //     dispatch(postActions.getPost())
-    // },[])
+
 
      const dispatch = useDispatch();
+
+     const [query, setQuery] = useSearchParams({page:'1'});
+
     useEffect(()=>{
-        dispatch(movieActions.getAll())
-    },[])
+        dispatch(movieActions.getAll({page:query.get('page')}))
+    },[query])
+
+    const  prevPage =()=> {
+           const page = +query.get('page')-1;
+           setQuery({page:`${page}`})
+    };
+
+    const nextPage =()=> {
+        const page = +query.get('page')+1;
+        setQuery({page:`${page}`})
+    };
 
     return(
         <div>
+            <div className='pages'>
+            <div className='page' aria-disabled={!prev} onClick={prevPage}>prev</div>
+            <div className='page' aria-disabled={!next} onClick={nextPage}>next</div>
+            </div>
+            <div className='card'>
             {results && results.map(movie=><MoviesListCard key={movie.id} movie={movie}/>)}
-            {/*{results2 && results2.map(post=><PosterPreview key={post.id} movie={post}/>)}*/}
+            </div>
         </div>
     );
 }

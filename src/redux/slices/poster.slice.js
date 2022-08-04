@@ -24,10 +24,10 @@ const postSlice = createSlice({
     reducers:{},
     extraReducers:(builder)=>{
         builder
-            .addCase(getPost.fulfilled, ((state, action) => {
+            .addCase(getPost.fulfilled, (state, action) => {
                 state.errors = null
                 state.post = action.payload
-            }))
+            })
             .addCase(getPost.rejected, (state, action) =>{
                 state.errors = action.payload
             })
