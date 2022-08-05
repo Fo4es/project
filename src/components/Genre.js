@@ -5,6 +5,7 @@ export default function Genre({genre}){
 
     return(
         <div className='genre'>
+
               <Link to={`/genre/${id}`} state={genre}>{name}</Link>
         </div>
     );
