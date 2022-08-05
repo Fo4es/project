@@ -5,6 +5,7 @@ import {useEffect} from "react";
 import {movieActions} from "../redux";
 
 export default function GenreInfoPage(){
+
     const location = useLocation();
 
     const {id} = location.state;

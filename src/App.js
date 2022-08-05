@@ -10,6 +10,7 @@ import GenreInfoPage from "./pages/GenreInfoPage";
 
 
 const App = ()=> {
+
   return (
     <div>
       <Routes>

@@ -7,6 +7,7 @@ import {useSearchParams} from "react-router-dom";
 
 
 export default function MoviesList(){
+
     const {movies,prev,next} = useSelector(state => state.movies);
 
     const {results} = movies;

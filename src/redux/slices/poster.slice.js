@@ -6,6 +6,7 @@ const initialState = {
 }
 
 const getPost = createAsyncThunk(
+
     'postSlice.getPost',
     async (picture, {rejectedWithValue})=>{
         try {

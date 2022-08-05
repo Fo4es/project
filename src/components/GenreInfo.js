@@ -6,6 +6,7 @@ import css from '../css/css.css'
 
 export default function GenreInfo({movie}){
    const {title,poster_path,vote_average,id} = movie
+
     return(
         <div className='result-card'>
             <Link to ={`/movie/${id}`} state={movie}>

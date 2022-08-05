@@ -1,6 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import Genre from "./Genre";
 import {useEffect} from "react";
+
 import {genreActions} from "../redux";
 
 export default function GenreBadge(){

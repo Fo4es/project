@@ -8,6 +8,7 @@ export default function Homepage(){
 
     const {movies,prev,next} = useSelector(state => state.movies);
 
+
     const {results} = movies;
 
 
