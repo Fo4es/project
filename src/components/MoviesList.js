@@ -32,12 +32,13 @@ export default function MoviesList(){
 
     return(
         <div>
-            <div className='pages'>
-            <div className='page' aria-disabled={!prev} onClick={prevPage}>prev</div>
-            <div className='page' aria-disabled={!next} onClick={nextPage}>next</div>
-            </div>
+
             <div className='card'>
             {results && results.map(movie=><MoviesListCard key={movie.id} movie={movie}/>)}
+            </div>
+            <div className='pages'>
+                <div className='page' aria-disabled={!prev} onClick={prevPage}>prev</div>
+                <div className='page' aria-disabled={!next} onClick={nextPage}>next</div>
             </div>
         </div>
     );

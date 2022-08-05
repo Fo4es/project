@@ -27,6 +27,7 @@ body{
     display: flex;
     justify-content: space-between;
     background-color: rgb(204 255 204);
+    margin-bottom: 20px;
     }
 .page{
     background-color: goldenrod;
@@ -54,9 +55,7 @@ img{
 .movie-info{
 
 }
-/*div{*/
-/*    background-color: rgb(204 255 204);*/
-/*}*/
+
 .owerview{
     display: flex;
     align-items: center;

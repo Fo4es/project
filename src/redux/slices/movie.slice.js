@@ -28,6 +28,14 @@ const getGenre = createAsyncThunk(
     }
 );
 
+const getSortMovie = createAsyncThunk(
+    'movieSlice/sort',
+    async ({page})=>{
+        const {data} = await movieService.getSortMovie(page);
+        return data
+    }
+);
+
 const movieSlice = createSlice({
     name:'movieSlice',
     initialState,
@@ -44,13 +52,18 @@ const movieSlice = createSlice({
             .addCase(getGenre.fulfilled, (state, action) => {
                 state.movies = action.payload
             })
+            .addCase(getSortMovie.fulfilled, (state, action) => {
+                state.movies = action.payload
+
+            })
 
 });
 const {reducer:movieReducer} = movieSlice;
 
 const movieActions = {
    getAll,
-    getGenre
+    getGenre,
+    getSortMovie
 }
 export {
     movieReducer,movieActions

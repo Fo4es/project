@@ -3,7 +3,7 @@ import {genreService} from "../../services";
 
 const initialState = {
     genre:[],
-    errors:null
+    errors:null,
 };
 
 const getAll = createAsyncThunk(

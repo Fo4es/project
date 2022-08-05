@@ -1,6 +1,6 @@
 import StarsRating from "./StarsRating";
 import {baseURL2} from "../constants";
-import css from "./css.css";
+import css from "../css/css.css";
 
 export default function MovieInfo({movie}){
     const {title,release_date,overview,poster_path,vote_average} = movie;

@@ -19,9 +19,14 @@ export default function GenreInfoPage(){
          dispatch(movieActions.getGenre({id:id}))
      })
 
+
+
+
     return(
+        <div>
         <div className='card'>
             {results && results.map(movie=><GenreInfo key={movie.id} movie={movie}/>)}
+        </div>
         </div>
     );
 }

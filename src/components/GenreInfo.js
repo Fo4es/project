@@ -2,7 +2,7 @@ import MovieInfo from "./MovieInfo";
 import {baseURL2} from "../constants";
 import StarsRating from "./StarsRating";
 import {Link} from "react-router-dom";
-import css from './css.css'
+import css from '../css/css.css'
 
 export default function GenreInfo({movie}){
    const {title,poster_path,vote_average,id} = movie
